@@ -1,0 +1,21 @@
+<main class="content" role="main">
+  <header class="bck-header">
+    <h1 class="header__title">{{ title }}</h1>
+
+    <nav class="header__nav">
+      <ul class="nav__content">
+        <li>
+          <a class="button" routerLink="/tour-of-heroes"> Dashboard </a>
+        </li>
+        <li>
+          <a class="button" routerLink="/tour-of-heroes/heroes"> Heroes </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div style="width: 100%">
+    <router-outlet></router-outlet>
+    <app-messages />
+  </div>
+</main>

@@ -1,0 +1,23 @@
+.counter-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 5px 5px 5px #000;
+  min-width: 150px;
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  background-color: orangered;
+  color: aliceblue;
+  cursor: pointer;
+  transition: 100ms ease-in-out;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

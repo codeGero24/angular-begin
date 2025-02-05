@@ -1,0 +1,31 @@
+<!-- (list with selectedHero) 
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div>id: {{ selectedHero.id }}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name" />
+  </div>
+  <button type="button" class="button" (click)="goBack()">go back</button>
+</div>
+-->
+
+<!-- (list with links) -->
+<div *ngIf="hero">
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input
+      id="hero-name"
+      class="hero-input"
+      [(ngModel)]="hero.name"
+      placeholder="Hero name"
+    />
+  </div>
+
+  <!-- save from the server -->
+  <button type="button" class="button" (click)="save()">save</button>
+
+  <button type="button" class="button" (click)="goBack()">go back</button>
+</div>
