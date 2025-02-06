@@ -37,4 +37,24 @@ export class EventManagerComponent implements OnInit, OnDestroy {
       this.removeClickListenerFn = null;
     }
   }
+
+  /* - ⚠️ Versione che mi da errori perchè EventManager non espone removeEventListener - 
+   
+  ngOnInit(): void {
+    this.eventManager.addEventListener(
+      this.el.nativeElement.querySelector('button'),
+      'click',
+      this.handleClick.bind(this)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.eventManager.removeEventListener(
+      this.el.nativeElement.querySelector('button'),
+      'click',
+      this.handleClick.bind(this)
+    );
+  }
+  
+  */
 }
