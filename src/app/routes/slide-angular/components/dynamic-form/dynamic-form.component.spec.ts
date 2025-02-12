@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DinamicFormComponent } from './dinamic-form.component';
+import { DinamicFormComponent } from './dynamic-form.component';
 
 describe('DinamicFormComponent', () => {
   let component: DinamicFormComponent;

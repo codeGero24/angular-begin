@@ -1,9 +1,9 @@
-<!-- Template-Driven Forms -->
+<!-- Template-Driven Forms 
 <div class="wrapper">
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
     <fieldset class="blue">
       <legend>Template-Driven Forms:</legend>
-      <!-- Name Field -->
+      
       <div class="form-field">
         <label for="name">Name:</label>
         <input
@@ -17,7 +17,7 @@
           required
           minlength="3"
         />
-        <!-- Error Messages -->
+       
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
           <p *ngIf="name.errors?.['required']" style="color: red">
             *Name is required
@@ -27,7 +27,7 @@
           </p>
         </div>
       </div>
-      <!-- Email Field -->
+      
       <div class="form-field">
         <label for="name">Email:</label>
         <input
@@ -41,7 +41,7 @@
           required
           email
         />
-        <!-- Error Messages -->
+        
         <div
           *ngIf="email.invalid && (email.dirty || email.touched)"
           class="error"
@@ -54,10 +54,11 @@
           </p>
         </div>
       </div>
-      <!-- Submit Button -->
+      
       <div class="buttons">
         <button type="submit" [disabled]="userForm.invalid">Submit</button>
       </div>
     </fieldset>
   </form>
 </div>
+-->

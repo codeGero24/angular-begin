@@ -19,12 +19,12 @@ export class TemplateDrivenFormComponent {
     name: '',
     email: '',
   };
-  submitted = false;
+  submitted: boolean = true;
 
   onSubmit(formData: any) {
     if (formData.valid) {
       this.submitted = true;
-      console.log('Form Data - value:', this.user);
+      console.log('Form Template Driven - value:', this.user);
       this.onReset(formData);
     }
   }

@@ -21,7 +21,7 @@ export class ReactiveFormComponent implements OnInit {
     name: new FormControl(''),
     email: new FormControl(''),
   });
-  submitted = false;
+  submitted: boolean = true;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -47,7 +47,7 @@ export class ReactiveFormComponent implements OnInit {
       return;
     }
 
-    console.log('Form Data - value:', this.userForm.value);
+    console.log('Form Reactive - value:', this.userForm.value);
     this.onReset();
   }
 

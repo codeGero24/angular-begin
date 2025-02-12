@@ -12,15 +12,17 @@ import { HomeComponent } from '@routes/home/home.component';
 import { CounterComponent } from '@components/counter/counter.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
 // - slide-angular - components
+import { SlideAngularComponent } from '@routes/slide-angular/slide-angular.component';
 import { InputNameComponent } from '@routes/slide-angular/components/input-name/input-name.component';
 import { ParentComponent } from '@routes/slide-angular/components/parent/parent.component';
 import { ChildComponent } from '@routes/slide-angular/components/child/child.component';
 import { EventManagerComponent } from '@routes/slide-angular/components/event-manager/event-manager.component';
-import { SlideAngularComponent } from '@routes/slide-angular/slide-angular.component';
 import { UserListComponent } from './routes/slide-angular/components/user-list/user-list.component';
 import { ObservablesComponent } from '@routes/slide-angular/components/observables/observables.component';
+// - slide-angular - components - forms
 import { ReactiveFormComponent } from '@routes/slide-angular/components/reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from '@routes/slide-angular/components/template-driven-form/template-driven-form.component';
+import { DynamicFormComponent } from '@routes/slide-angular/components/dynamic-form/dynamic-form.component';
 // - slide-angular - services
 import { MyService } from '@routes/slide-angular/services/my.service';
 import { MyInterceptor } from '@routes/slide-angular/services/interceptor/my.interceptor';
@@ -33,7 +35,6 @@ import { HeroesComponent } from '@routes/tour-of-heroes/components/heroes/heroes
 import { HeroDetailComponent } from '@routes/tour-of-heroes/components/hero-detail/hero-detail.component';
 import { MessagesComponent } from '@routes/tour-of-heroes/components/messages/messages.component';
 import { HeroSearchComponent } from '@routes/tour-of-heroes/components/hero-search/hero-search.component';
-import { DinamicFormComponent } from './routes/slide-angular/components/dinamic-form/dinamic-form.component';
 // - tour-of-heroes - services
 // - import { InMemoryDataService } from '@routes/tour-of-heroes/services/in-memory-data.service';
 
@@ -58,11 +59,11 @@ import { DinamicFormComponent } from './routes/slide-angular/components/dinamic-
     ObservablesComponent,
     ReactiveFormComponent,
     TemplateDrivenFormComponent,
-    DinamicFormComponent,
+    DynamicFormComponent,
   ],
   imports: [
-    FormsModule, // 👈 Importa FormsModule per Template-Driven Forms
-    // - ReactiveFormsModule, // 👈 Importa ReactiveFormsModule per Reactive Forms
+    // - FormsModule, // 👈 Importa FormsModule per Template-Driven Forms
+    ReactiveFormsModule, // 👈 Importa ReactiveFormsModule per Reactive Forms and Dynamic
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

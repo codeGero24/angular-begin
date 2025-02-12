@@ -79,6 +79,18 @@ form {
     }
   }
 
+  // - Errors
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  input.ng-invalid.ng-touched {
+    border-color: red;
+    background-color: #ffe6e6;
+  }
+
   // - Modifier
   .purple {
     border-color: rebeccapurple;
@@ -89,12 +101,23 @@ form {
       color: #fff;
     }
   }
+
   .blue {
     border-color: cornflowerblue;
     color: cornflowerblue;
 
     .buttons button {
       background-color: cornflowerblue;
+      color: #fff;
+    }
+  }
+
+  .orange {
+    border-color: orangered;
+    color: orangered;
+
+    .buttons button {
+      background-color: orangered;
       color: #fff;
     }
   }

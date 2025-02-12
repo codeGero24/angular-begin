@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <fieldset class="orange">
+      <legend>DynamicForm: FormGroup</legend>
+
+      <div *ngFor="let field of fields" class="form-field">
+        <label for="name">{{ field.label }}</label>
+        <input
+          [id]="field.id"
+          [type]="field.type"
+          [name]="field.name"
+          class="field-input"
+          [formControlName]="field.name"
+          [placeholder]="field.placeholder"
+          required
+        />
+        <div
+          *ngIf="
+            dynamicForm.get(field.name)?.invalid &&
+            (dynamicForm.get(field.name)?.dirty ||
+              dynamicForm.get(field.name)?.touched)
+          "
+          class="error"
+        >
+          <small *ngIf="dynamicForm.get(field.name)?.errors?.['required']"
+            >⚠️ {{ field.label }} is required</small
+          >
+          <small *ngFor="let errorMessage of field.errors">
+            <span
+              *ngIf="dynamicForm.get(field.name)?.errors?.[errorMessage.keyError]"
+            >
+              {{ errorMessage.message }}
+            </span>
+          </small>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" [disabled]="!dynamicForm.valid">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
