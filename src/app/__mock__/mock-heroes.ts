@@ -1,4 +1,4 @@
-import { Hero } from '../routes/tour-of-heroes/heroes/types';
+import { Hero } from '../routes/tour-of-heroes/components/heroes/types';
 
 export const HEROES: Hero[] = [
   { id: 12, name: 'Dr. Nice' },

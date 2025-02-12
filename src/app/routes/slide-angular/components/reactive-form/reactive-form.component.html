@@ -1,0 +1,57 @@
+<!--
+<div class="wrapper">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <fieldset class="purple">
+      <legend>ReactiveForms: FormGroup</legend>
+
+      <div class="form-field">
+        <label for="name">Name:</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          class="field-input"
+          formControlName="name"
+          placeholder="Insert your name"
+          required
+        />
+        <div
+          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          class="error"
+        >
+          <small *ngIf="name?.errors?.['required']">⚠️ Name is required</small>
+          <small *ngIf="name?.errors?.['minlength']"
+            >⚠️ Minimum 3 characters</small
+          >
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          class="field-input"
+          formControlName="email"
+          placeholder="Insert your email"
+          required
+        />
+        <div
+          *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+          class="error"
+        >
+          <small *ngIf="email?.errors?.['required']"
+            >⚠️ Email is required</small
+          >
+          <small *ngIf="email?.errors?.['email']"
+            >⚠️ Invalid email format</small
+          >
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="submit" [disabled]="!userForm.valid">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+-->

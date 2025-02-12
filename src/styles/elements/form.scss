@@ -1,0 +1,101 @@
+/* Form styles */
+form {
+  padding: 1rem;
+  box-shadow: 0px 0px 24px #5c5696;
+
+  // - fieldset
+  fieldset {
+    position: relative;
+    padding: 1rem;
+
+    & > legend {
+      margin-left: 2rem;
+      color: currentColor;
+      padding: 0 1rem;
+      font-size: 1rem;
+      line-height: 1;
+    }
+  }
+
+  label {
+    font-size: 1rem;
+    padding: 0.2rem 0;
+    font-weight: 300;
+    color: #777;
+    text-align: right;
+  }
+
+  select,
+  input,
+  button,
+  option,
+  optgroup,
+  textarea {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .form-field {
+    display: grid;
+    align-items: baseline;
+    grid-template-columns: 1fr 4fr 2fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .field-input {
+    border: none;
+    border-bottom: 2px solid #d1d1d4;
+    background: none;
+    padding: 10px;
+
+    transition: 0.2s;
+    &:is(:active, :focus, :hover) {
+      outline: none;
+      border-bottom-color: #6a679e;
+    }
+  }
+
+  .buttons {
+    text-align: center;
+
+    button {
+      padding: 8px 16px;
+      background-color: #333;
+      color: #eee;
+      border-radius: 6px;
+      transition: 0.2s;
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  // - Modifier
+  .purple {
+    border-color: rebeccapurple;
+    color: rebeccapurple;
+
+    .buttons button {
+      background-color: rebeccapurple;
+      color: #fff;
+    }
+  }
+  .blue {
+    border-color: cornflowerblue;
+    color: cornflowerblue;
+
+    .buttons button {
+      background-color: cornflowerblue;
+      color: #fff;
+    }
+  }
+}

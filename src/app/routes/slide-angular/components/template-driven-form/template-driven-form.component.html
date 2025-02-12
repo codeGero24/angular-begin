@@ -1,0 +1,63 @@
+<!-- Template-Driven Forms -->
+<div class="wrapper">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <fieldset class="blue">
+      <legend>Template-Driven Forms:</legend>
+      <!-- Name Field -->
+      <div class="form-field">
+        <label for="name">Name:</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          class="field-input"
+          [(ngModel)]="user.name"
+          #name="ngModel"
+          placeholder="Insert your name"
+          required
+          minlength="3"
+        />
+        <!-- Error Messages -->
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+          <p *ngIf="name.errors?.['required']" style="color: red">
+            *Name is required
+          </p>
+          <p *ngIf="name.errors?.['minlength']" style="color: red">
+            ⚠️ Minimum 3 characters
+          </p>
+        </div>
+      </div>
+      <!-- Email Field -->
+      <div class="form-field">
+        <label for="name">Email:</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          class="field-input"
+          [(ngModel)]="user.email"
+          #email="ngModel"
+          placeholder="Insert your email"
+          required
+          email
+        />
+        <!-- Error Messages -->
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="error"
+        >
+          <p *ngIf="email.errors?.['required']" style="color: red">
+            *Email is required
+          </p>
+          <p *ngIf="email.errors?.['email']" style="color: red">
+            ⚠️ Invalid email format
+          </p>
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div class="buttons">
+        <button type="submit" [disabled]="userForm.invalid">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

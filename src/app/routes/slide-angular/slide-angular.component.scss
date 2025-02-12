@@ -1,0 +1,12 @@
+.l-main {
+  margin: 84px 0;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  gap: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .l-main {
+    grid-template-columns: 90%;
+  }
+}

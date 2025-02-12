@@ -1,0 +1,22 @@
+//- Control status Css
+.ng-valid,
+.ng-invalid,
+.ng-pending,
+.ng-pristine,
+.ng-dirty,
+.ng-untouched,
+.ng-touched,
+.ng-submitted {
+  font-size: 12px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+  background-color: #ffe6e6;
+}

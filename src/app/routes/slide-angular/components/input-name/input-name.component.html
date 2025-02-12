@@ -1,0 +1,23 @@
+<!-- Run if: /src/app/angular.json -> import {FormsModule} and insert inside "imports" -->
+
+<!--
+<div class="wrapper">
+  <h2>Component: {{ selector }}</h2>
+  <input [(ngModel)]="name" placeholder="Insert your name" />
+  <p>Your name is:</p>
+  <p>
+    <strong>{{ name }}</strong>
+  </p>
+</div>
+-->
+
+<!-- Else use follow code -->
+<div class="wrapper">
+  <h2>Component: {{ selector }}</h2>
+
+  <input (input)="onChangeInput($event)" placeholder="Insert your name" />
+  <p>Your name is:</p>
+  <p>
+    <strong>{{ name }}</strong>
+  </p>
+</div>

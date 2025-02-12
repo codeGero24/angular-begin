@@ -1,3 +1,13 @@
+.bck-navbar {
+  display: block;
+
+  .navbar {
+    &__content {
+      display: flex;
+    }
+  }
+}
+
 .button {
   background: transparent;
   line-height: 1.2;

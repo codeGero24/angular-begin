@@ -26,7 +26,8 @@
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/app/components/*"],
       "@routes/*": ["./src/app/routes/*"],
-      "@services/*": ["./src/app/services/*"]
+      "@services/*": ["./src/app/services/*"],
+      "@styles/*": ["./src/app/styles/*"]
     }
   },
   "angularCompilerOptions": {

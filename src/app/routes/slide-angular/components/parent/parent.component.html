@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <h2>Parent Component</h2>
+  <p>{{ message }}</p>
+
+  <app-child
+    [childMessage]="message"
+    (messageEvent)="receiveMessage($event)"
+  ></app-child>
+</div>
