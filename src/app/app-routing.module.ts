@@ -7,16 +7,24 @@ import { DashboardComponent } from '@routes/tour-of-heroes/components/dashboard/
 import { HeroesComponent } from '@routes/tour-of-heroes/components/heroes/heroes.component';
 import { HeroDetailComponent } from '@routes/tour-of-heroes/components/hero-detail/hero-detail.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'slide-angular', component: SlideAngularComponent },
+export const routes: Routes = [
+  { title: 'Home', path: '', component: HomeComponent },
   {
+    title: 'Slide Angular',
+    path: 'slide-angular',
+    component: SlideAngularComponent,
+  },
+  {
+    title: 'Tutorial',
     path: 'tour-of-heroes',
     component: TourOfHeroesComponent,
     children: [
-      { path: '', component: DashboardComponent },
-      { path: 'heroes', component: HeroesComponent },
-      { path: 'detail/:id', component: HeroDetailComponent },
+      { title: 'Dashboard', path: '', component: DashboardComponent },
+      { title: 'Heroes', path: 'heroes', component: HeroesComponent },
+      {
+        path: 'detail/:id',
+        component: HeroDetailComponent,
+      },
     ],
   },
 ];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { field } from './types';
+import { MOCK_FIELDS } from '@mock/mock-form-fields';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -17,51 +18,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const mockFields: field[] = [
-      {
-        id: 'name',
-        name: 'name',
-        label: 'Name',
-        placeholder: 'Insert your name',
-        type: 'text',
-        errors: [
-          {
-            keyError: 'minlength',
-            validator: Validators.minLength(3),
-            message: '⚠️ Minimum 3 characters',
-          },
-        ],
-      },
-      {
-        id: 'email',
-        name: 'email',
-        label: 'Email',
-        placeholder: 'Insert your email',
-        type: 'email',
-        errors: [
-          {
-            keyError: 'email',
-            validator: Validators.email,
-            message: '⚠️ Invalid email format',
-          },
-        ],
-      },
-      {
-        id: 'password',
-        name: 'password',
-        label: 'Password',
-        placeholder: 'Insert your password',
-        type: 'password',
-        errors: [
-          {
-            keyError: 'minlength',
-            validator: Validators.minLength(6),
-            message: '⚠️ Minimum 6 characters',
-          },
-        ],
-      },
-    ];
-    mockFields.forEach((field: field) => this.addField(field));
+    MOCK_FIELDS.forEach((field: field) => this.addField(field));
   }
 
   addField({ id, name, label, type, placeholder, errors }: field): void {

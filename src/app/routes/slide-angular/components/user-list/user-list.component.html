@@ -1,6 +1,8 @@
 <div class="wrapper">
   <h2>Fetch Api by MyService</h2>
-  <ul class="bck-user-list">
+  <ul
+    class="bck-user-list flex flex-wrap items-center justify-space-between gap-16 w-full"
+  >
     <li *ngFor="let user of respUsers">
       {{ user.firstName }} {{ user.lastName }}
     </li>

@@ -1,0 +1,59 @@
+@mixin generate-wrap {
+  @each $value in $wrap-values {
+    .flex-#{$value} {
+      flex-wrap: #{$value};
+    }
+  }
+}
+
+@mixin generate-gap {
+  @each $space in $spaceamounts {
+    .gap-#{$space} {
+      gap: #{$space/16}rem;
+    }
+  }
+}
+
+@mixin generate-direction {
+  @each $direction in $direction-values {
+    $dirname: $direction;
+
+    @if ($direction == "column") {
+      $dirname: "col";
+    }
+
+    @if ($direction == "row-reverse") {
+      $dirname: "row-rev";
+    }
+
+    @if ($direction == "column-reverse") {
+      $dirname: "col-rev";
+    }
+
+    .flex-#{$dirname} {
+      gap: #{$direction};
+    }
+  }
+}
+
+@mixin generate-justify {
+  @each $value in $justify-values {
+    .justify-#{$value} {
+      justify-content: #{$value};
+    }
+  }
+}
+
+@mixin generate-align-items {
+  @each $value in $justify-values {
+    .align-#{$value} {
+      align-items: #{$value};
+    }
+  }
+}
+
+@include generate-wrap;
+@include generate-gap;
+@include generate-direction;
+@include generate-justify;
+@include generate-align-items;

@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <h2>Directives & Transform pipes</h2>
+  <details
+    *ngFor="let directive of directives"
+    class="flex flex-wrap items-center justify-space-between gap-16 w-full"
+  >
+    <summary>{{ directive[0] }}</summary>
+    <ul *ngIf="directive[1].length">
+      <li *ngFor="let detail of directive[1]">
+        {{ detail.name }}
+      </li>
+    </ul>
+  </details>
+</div>

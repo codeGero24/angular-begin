@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -9,8 +9,9 @@ import { AppComponent } from './app.component';
 
 // - Common - components
 import { HomeComponent } from '@routes/home/home.component';
-import { CounterComponent } from '@components/counter/counter.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
+import { RegisterIconsComponent } from './components/register-icons/register-icons.component';
+import { CounterComponent } from '@components/counter/counter.component';
 // - slide-angular - components
 import { SlideAngularComponent } from '@routes/slide-angular/slide-angular.component';
 import { InputNameComponent } from '@routes/slide-angular/components/input-name/input-name.component';
@@ -23,6 +24,14 @@ import { ObservablesComponent } from '@routes/slide-angular/components/observabl
 import { ReactiveFormComponent } from '@routes/slide-angular/components/reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from '@routes/slide-angular/components/template-driven-form/template-driven-form.component';
 import { DynamicFormComponent } from '@routes/slide-angular/components/dynamic-form/dynamic-form.component';
+// - slide-angular - components - directives
+import { DirectivesComponent } from '@routes/slide-angular/components/directives/directives.component';
+import { PanelComponent } from '@routes/slide-angular/components/directives/panel/panel.component';
+import { MessageComponent } from '@routes/slide-angular/components/directives/message/message.component';
+import { AddressBookComponent } from '@routes/slide-angular/components/directives/address-book/address-book.component';
+import { DatePipeComponent } from '@routes/slide-angular/components/directives/date-pipe/date-pipe.component';
+import { CurrencyPipeComponent } from '@routes/slide-angular/components/directives/currency-pipe/currency-pipe.component';
+
 // - slide-angular - services
 import { MyService } from '@routes/slide-angular/services/my.service';
 import { MyInterceptor } from '@routes/slide-angular/services/interceptor/my.interceptor';
@@ -37,6 +46,14 @@ import { MessagesComponent } from '@routes/tour-of-heroes/components/messages/me
 import { HeroSearchComponent } from '@routes/tour-of-heroes/components/hero-search/hero-search.component';
 // - tour-of-heroes - services
 // - import { InMemoryDataService } from '@routes/tour-of-heroes/services/in-memory-data.service';
+
+// - Angular Matirial
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -60,11 +77,19 @@ import { HeroSearchComponent } from '@routes/tour-of-heroes/components/hero-sear
     ReactiveFormComponent,
     TemplateDrivenFormComponent,
     DynamicFormComponent,
+    DirectivesComponent,
+    PanelComponent,
+    MessageComponent,
+    AddressBookComponent,
+    DatePipeComponent,
+    CurrencyPipeComponent,
+    RegisterIconsComponent,
   ],
   imports: [
     // - FormsModule, // 👈 Importa FormsModule per Template-Driven Forms
     ReactiveFormsModule, // 👈 Importa ReactiveFormsModule per Reactive Forms and Dynamic
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -75,6 +100,12 @@ import { HeroSearchComponent } from '@routes/tour-of-heroes/components/hero-sear
       dataEncapsulation: false,
     }),
     */
+    // - Angular Matirial
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
   ],
   providers: [
     MyService, // - declare here or by @Injectable({ providedIn: 'root' })
@@ -95,6 +126,7 @@ import { HeroSearchComponent } from '@routes/tour-of-heroes/components/hero-sear
       multi: true,
     },
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

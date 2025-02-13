@@ -1,0 +1,20 @@
+// - @use "variables" as *;
+
+@mixin generate-display {
+  @each $value in $display-values {
+    .#{$value} {
+      display: #{$value};
+    }
+  }
+}
+
+@mixin generate-position {
+  @each $value in $position-values {
+    .#{$value} {
+      position: #{$value};
+    }
+  }
+}
+
+@include generate-display;
+@include generate-position;
