@@ -1,0 +1,66 @@
+.bck-course-card {
+  cursor: pointer;
+  width: 300px;
+  min-height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  background: #fff;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    aspect-ratio: 16/9;
+  }
+
+  md-card-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .md-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .md-subhead {
+      font-size: 12px;
+    }
+  }
+
+  md-card-avatar {
+    img {
+      margin: 0 auto;
+      width: 64px;
+      height: 64px;
+      padding: 1rem;
+    }
+  }
+
+  mat-card-content {
+    padding: 1rem;
+
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    place-self: end;
+    padding: 1rem;
+  }
+}

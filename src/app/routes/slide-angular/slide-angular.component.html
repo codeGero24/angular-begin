@@ -1,23 +1,18 @@
 <main class="l-main" role="main">
-  <!--Component: Counter-->
-  <app-counter />
-  <!--Component: InputName -->
-  <app-input-name />
-  <!--Component: Parent -->
-  <app-parent />
-  <!--Component: EventManager -->
-  <app-event-manager />
-  <!--Component: UserList -->
-  <app-user-list />
-  <!--Component: Observables 
-  <app-observables />
-  -->
-  <!--Component: ReactiveForm -->
-  <app-reactive-form />
-  <!--Component: TeamplateDrivenForm -->
-  <app-template-driven-form />
-  <!--Component: DynamicForm -->
-  <app-dynamic-form />
-  <!--Component: Directives -->
-  <app-directives />
+  <!--  <div *ngIf="navbarService.showContent$ | async" class="grid-wrapper"> -->
+  <div *ngIf="showCourses" class="grid-wrapper">
+    <app-course-card
+      class="grid-item"
+      *ngFor="let component of components"
+      headline="Slide Angular"
+      [title]="component.title"
+      [image]="component.image"
+      [routerLink]="component.path"
+    >
+    </app-course-card>
+  </div>
+
+  <div class="wrapper">
+    <router-outlet></router-outlet>
+  </div>
 </main>

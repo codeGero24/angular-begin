@@ -10,8 +10,4 @@ type directives = [string, { name: string; description: string }[]][];
 })
 export class DirectivesComponent {
   directives = DIRECTIVES as directives;
-
-  isArray(arr: Array<any> | string): boolean {
-    return Array.isArray(arr);
-  }
 }

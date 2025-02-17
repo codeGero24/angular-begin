@@ -9,7 +9,7 @@
 @mixin generate-gap {
   @each $space in $spaceamounts {
     .gap-#{$space} {
-      gap: #{$space/16}rem;
+      gap: #{calc($space / 16)}rem;
     }
   }
 }

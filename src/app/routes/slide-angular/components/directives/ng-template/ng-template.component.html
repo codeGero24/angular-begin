@@ -1,0 +1,11 @@
+<div *ngIf="people; else noPeople">
+  <app-course-card [title]="people.title" [description]="people.description">
+  </app-course-card>
+</div>
+
+<ng-template #noPeople>
+  <div class="no-people-container">
+    <h3>Mi dispiace, la tua rubrica è vuota</h3>
+    <button class="button" (click)="addNumber()">Aggiungi numero</button>
+  </div>
+</ng-template>

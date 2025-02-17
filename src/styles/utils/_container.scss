@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .spacer {
   flex: 1;
 }
@@ -12,8 +14,21 @@
 }
 
 .wrapper {
+  display: grid;
   width: 90%;
-  justify-self: center;
+  place-self: center;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 5fr));
+  width: 100%;
+  gap: 2rem;
+  padding: 2rem;
+
+  .grid-item {
+    place-self: start center;
+  }
 }
 
 .w-full {

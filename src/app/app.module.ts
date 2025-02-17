@@ -12,6 +12,7 @@ import { HomeComponent } from '@routes/home/home.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
 import { RegisterIconsComponent } from './components/register-icons/register-icons.component';
 import { CounterComponent } from '@components/counter/counter.component';
+import { CourseCardComponent } from '@components/course-card/course-card.component';
 // - slide-angular - components
 import { SlideAngularComponent } from '@routes/slide-angular/slide-angular.component';
 import { InputNameComponent } from '@routes/slide-angular/components/input-name/input-name.component';
@@ -54,6 +55,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { NgTemplateComponent } from './routes/slide-angular/components/directives/ng-template/ng-template.component';
+import { HighlightDirectiveComponent } from './routes/slide-angular/components/highlight-directive/highlight-directive.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +88,9 @@ import { MatMenuModule } from '@angular/material/menu';
     DatePipeComponent,
     CurrencyPipeComponent,
     RegisterIconsComponent,
+    CourseCardComponent,
+    NgTemplateComponent,
+    HighlightDirectiveComponent,
   ],
   imports: [
     // - FormsModule, // 👈 Importa FormsModule per Template-Driven Forms
@@ -103,6 +110,7 @@ import { MatMenuModule } from '@angular/material/menu';
     // - Angular Matirial
     MatSidenavModule,
     MatToolbarModule,
+    MatCardModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,

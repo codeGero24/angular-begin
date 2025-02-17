@@ -1,41 +1,30 @@
 <!--
-<nav class="bck-navbar">
-  <ul class="navbar__content">
-    <li>
-      <button class="button" (click)="goTo('')">Home</button>
-    </li>
-    <li>
-      <button class="button" (click)="goTo('slide-angular')">
-        Slide Angular
-      </button>
-    </li>
-    <li>
-      <button class="button" (click)="goTo('tour-of-heroes')">Tutorial</button>
-    </li>
-  </ul>
-</nav>
--->
-
 <mat-toolbar class="bck-navbar">
   <mat-toolbar-row>
     <mat-icon class="lg" svgIcon="angular-logo"></mat-icon>
     <ul *ngIf="isDesktop">
       <a
-        class="button"
+        mat-button
+        class="nav-link"
         *ngFor="let navLink of navLinks"
-        routerLink="{{ navLink.path }}"
+        [routerLink]="navLink.path"
+        [routerLinkActiveOptions]="{ exact: navLink.path === '/' }"
+        routerLinkActive="active"
       >
         {{ navLink.title }}
       </a>
     </ul>
+
     <span class="spacer"></span>
+
     <button *ngIf="isMobile" mat-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
       <mat-menu #menu="matMenu">
         <a
           mat-menu-item
           *ngFor="let navLink of navLinks"
-          routerLink="{{ navLink.path }}"
+          [routerLink]="navLink.path"
+          routerLinkActive="active"
         >
           {{ navLink.title }}
         </a>
@@ -46,12 +35,61 @@
   <mat-toolbar-row *ngIf="subMenu">
     <ul class="">
       <a
-        class="button"
+        class="nav-link"
         *ngFor="let navLink of navLinks"
-        routerLink="{{ navLink.path }}"
+        [routerLink]="navLink.path"
+        routerLinkActive="active"
       >
         {{ navLink.title }}
       </a>
     </ul>
   </mat-toolbar-row>
 </mat-toolbar>
+-->
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="over" position="end">
+    <mat-toolbar class="bck-navbar">
+      <span class="spacer-sidenav"></span>
+      <mat-icon class="cursor-pointer" (click)="sidenav.close()"
+        >close</mat-icon
+      >
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a
+        mat-list-item
+        *ngFor="let navLink of navLinks"
+        [routerLink]="navLink.path"
+        [routerLinkActiveOptions]="{ exact: navLink.path === '' }"
+        routerLinkActive="active"
+      >
+        {{ navLink.title }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Toolbar -->
+  <mat-toolbar class="bck-navbar">
+    <!-- Logo -->
+    <mat-icon class="lg" svgIcon="angular-logo"></mat-icon>
+    <ul *ngIf="isDesktop">
+      <a
+        mat-button
+        class="nav-link"
+        *ngFor="let navLink of navLinks"
+        [routerLink]="navLink.path"
+        [routerLinkActiveOptions]="{ exact: navLink.path === '' }"
+        routerLinkActive="active"
+      >
+        {{ navLink.title }}
+      </a>
+    </ul>
+    <div class="spacer"></div>
+    <!-- Burger menu -->
+    <mat-icon class="cursor-pointer" *ngIf="isMobile" (click)="sidenav.open()"
+      >menu</mat-icon
+    >
+  </mat-toolbar>
+</mat-sidenav-container>

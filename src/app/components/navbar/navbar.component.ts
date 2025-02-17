@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,13 +11,13 @@ export class NavbarComponent {
   @Input() navLinks: Array<Route> | undefined;
   @Input() subMenu: Array<Route> | undefined;
 
+  timedOutCloser: any;
   isDesktop: boolean = false;
   isMobile: boolean = false;
 
-  constructor(private router: Router) {
+  constructor() {
     this.isDesktop = window.innerWidth >= 988;
     this.isMobile = window.innerWidth < 988;
-
     this.handleResize();
   }
 
@@ -27,7 +28,16 @@ export class NavbarComponent {
     });
   }
 
-  goTo(path: string) {
-    this.router.navigate([path]);
+  mouseEnter(trigger: MatMenuTrigger) {
+    if (this.timedOutCloser) {
+      clearTimeout(this.timedOutCloser);
+    }
+    trigger.openMenu();
+  }
+
+  mouseLeave(trigger: MatMenuTrigger) {
+    this.timedOutCloser = setTimeout(() => {
+      trigger.closeMenu();
+    }, 50);
   }
 }

@@ -1,14 +1,28 @@
-<div class="wrapper">
-  <h2>Directives & Transform pipes</h2>
-  <details
+<h2>Directives & Transform pipes</h2>
+
+<!--
+<div class="flex flex-wrap gap-16 w-full">
+  <app-course-card
     *ngFor="let directive of directives"
-    class="flex flex-wrap items-center justify-space-between gap-16 w-full"
+    [title]="directive[0]"
+    image="assets/img/angular-logo.svg"
   >
-    <summary>{{ directive[0] }}</summary>
     <ul *ngIf="directive[1].length">
       <li *ngFor="let detail of directive[1]">
-        {{ detail.name }}
+        {{ detail.name | uppercase }}
       </li>
     </ul>
-  </details>
+  </app-course-card>
 </div>
+-->
+
+<!-- Panel component - ng-content -->
+<app-panel>
+  <div panel-title>Panel Title</div>
+  <p>Contenuto panel - ng-content</p>
+</app-panel>
+
+<!-- Message component - ng-container -->
+<app-message></app-message>
+<!-- NgTemplate -->
+<app-ng-template></app-ng-template>
