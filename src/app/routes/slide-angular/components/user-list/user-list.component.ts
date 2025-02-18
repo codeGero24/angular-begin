@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { MyService } from '@routes/slide-angular/services/my.service';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from '@services/user/user.service';
 import { fromEvent } from 'rxjs';
 
 @Component({
@@ -9,11 +10,20 @@ import { fromEvent } from 'rxjs';
 })
 export class UserListComponent implements OnInit {
   respUsers: any;
+  firstUser: any;
 
-  constructor(private service: MyService, private el: ElementRef) {}
+  constructor(
+    private service: UserService,
+    private el: ElementRef,
+    private actRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    // - Method witout routeResolver
+    // - this.getUsers();
+    // - Method with routeResolver
+    this.getUsersByResolver();
+
     this.subscribeObservers();
     // - this.service.genNumber();
   }
@@ -30,5 +40,11 @@ export class UserListComponent implements OnInit {
 
   getUsers(): void {
     this.service.getUsers().subscribe((resp) => (this.respUsers = resp));
+  }
+
+  getUsersByResolver(): void {
+    this.actRoute.data.subscribe((resp) => {
+      this.respUsers = resp['users-list'];
+    });
   }
 }

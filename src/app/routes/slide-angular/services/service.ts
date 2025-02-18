@@ -10,7 +10,7 @@ export type User = {
   lastName: string;
 };
 
-export type RespUser = {
+export type RespUsers = {
   users: User[];
 };
 

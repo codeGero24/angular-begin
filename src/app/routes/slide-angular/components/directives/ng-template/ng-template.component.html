@@ -1,6 +1,5 @@
 <div *ngIf="people; else noPeople">
-  <app-course-card [title]="people.title" [description]="people.description">
-  </app-course-card>
+  <app-course-card [title]="people.title" [description]="people.description"></app-course-card>
 </div>
 
 <ng-template #noPeople>

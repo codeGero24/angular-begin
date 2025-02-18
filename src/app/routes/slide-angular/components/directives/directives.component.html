@@ -17,12 +17,22 @@
 -->
 
 <!-- Panel component - ng-content -->
-<app-panel>
-  <div panel-title>Panel Title</div>
-  <p>Contenuto panel - ng-content</p>
-</app-panel>
+<div class="grid-wrapper">
+  <app-panel>
+    <div panel-title>Panel Title</div>
+    <p>Contenuto panel - ng-content</p>
+  </app-panel>
 
-<!-- Message component - ng-container -->
-<app-message></app-message>
-<!-- NgTemplate -->
-<app-ng-template></app-ng-template>
+  <!-- Message component - ng-container -->
+  <app-message></app-message>
+  <!-- NgTemplate -->
+  <app-ng-template></app-ng-template>
+  <!-- Custom Directive -->
+  <app-highlight-directive></app-highlight-directive>
+  <!-- DatePipe Directive -->
+  <app-date-pipe></app-date-pipe>
+  <!-- CurrencyPipe Directive -->
+  <app-currency-pipe></app-currency-pipe>
+  <!-- AddressBook PhonePipe and UppecasePipe -->
+  <app-address-book></app-address-book>
+</div>

@@ -14,6 +14,8 @@ import { ParentComponent } from '@routes/slide-angular/components/parent/parent.
 import { UserListComponent } from '@routes/slide-angular/components/user-list/user-list.component';
 import { DirectivesComponent } from '@routes/slide-angular/components/directives/directives.component';
 import { ReactiveFormComponent } from '@routes/slide-angular/components/reactive-form/reactive-form.component';
+import { UserResolver } from './resolver/user.resolver';
+import { userGuard } from './resolver/user.guard';
 
 export interface RouteConfig extends Route {
   path?: string;
@@ -62,6 +64,10 @@ export const routes: RouteConfig[] = [
         title: 'Fetch Api by MyService',
         path: 'fetch-users',
         component: UserListComponent,
+        canActivate: [userGuard],
+        resolve: {
+          'users-list': UserResolver,
+        },
       },
       {
         title: 'Forms: Template diven, Reactive, and  Dynamic',
@@ -88,7 +94,7 @@ export const routes: RouteConfig[] = [
       },
     ],
   },
-  // -  { path: '**', component: PageNotFoundComponent } - page 404
+  { path: '**', redirectTo: '/', pathMatch: 'full' }, // - page 404
 ];
 
 @NgModule({

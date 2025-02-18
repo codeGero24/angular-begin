@@ -10,4 +10,10 @@ export class HomeComponent {
 
   title = 'angular-begin';
   founder = 'Calogero';
+  /*
+  constructor(private translateService: TranslateService){
+    // - Importa lingua di default
+    translateService.setDefaultLang('en')
+  }
+  */
 }

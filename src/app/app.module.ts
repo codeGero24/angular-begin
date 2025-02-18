@@ -1,7 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 // - import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,7 +62,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { NgTemplateComponent } from './routes/slide-angular/components/directives/ng-template/ng-template.component';
-import { HighlightDirectiveComponent } from './routes/slide-angular/components/highlight-directive/highlight-directive.component';
+import { HighlightDirectiveComponent } from './routes/slide-angular/components/directives/highlight-directive/highlight-directive.component';
+// - Pipes
+import { PhonePipePipe } from './routes/slide-angular/pipe/phone-pipe.pipe';
+import { UppercasePipe } from './routes/slide-angular/pipe/uppercase-pipe.pipe';
+import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
+
+/* - Per usare Multilingua devo utilizzare Angular 16+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.josn');
+}
+*/
 
 @NgModule({
   declarations: [
@@ -91,6 +106,9 @@ import { HighlightDirectiveComponent } from './routes/slide-angular/components/h
     CourseCardComponent,
     NgTemplateComponent,
     HighlightDirectiveComponent,
+    PhonePipePipe,
+    UppercasePipe,
+    LanguageSwitchComponent,
   ],
   imports: [
     // - FormsModule, // 👈 Importa FormsModule per Template-Driven Forms
@@ -99,10 +117,10 @@ import { HighlightDirectiveComponent } from './routes/slide-angular/components/h
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    /*
+    /* - The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        and returns simulated server responses.
+        Remove it when a real server is ready to receive requests.
+    
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
@@ -114,8 +132,18 @@ import { HighlightDirectiveComponent } from './routes/slide-angular/components/h
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    /* - Translate Module
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      }
+    }),
+    */
   ],
   providers: [
+    DatePipe,
     MyService, // - declare here or by @Injectable({ providedIn: 'root' })
     // - Interceptors
     {

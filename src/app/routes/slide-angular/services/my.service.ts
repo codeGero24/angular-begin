@@ -1,9 +1,8 @@
-import type { httpOptions, RespUser } from './service';
+import type { httpOptions } from './service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MessageService } from '@services/message/message.service';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -43,13 +42,5 @@ export class MyService {
   getData(): Observable<any> {
     const httpOptions = this.getHttpOptions();
     return this.http.get(this.API_URL, httpOptions);
-  }
-
-  getUsers(): Observable<RespUser> {
-    return this.http.get<RespUser>(`${this.API_URL}/users`).pipe(
-      tap((resp) => this.log(`fetched getUsers::`)),
-      map((resp) => resp['users']),
-      catchError(this.handleError<any>('getHeroes', []))
-    );
   }
 }
